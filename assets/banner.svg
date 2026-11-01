@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19" />
+      <stop offset="50%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#070a12" />
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+    <linearGradient id="accentPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8" />
+      <stop offset="50%" stop-color="#a855f7" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.8" />
+    </linearGradient>
+
+    <!-- Filters & Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <style>
+      .cloud-pulse {
+        animation: pulse 6s ease-in-out infinite alternate;
+      }
+      .node-orbit {
+        animation: float 7s ease-in-out infinite alternate;
+      }
+      .node-orbit-rev {
+        animation: floatRev 8s ease-in-out infinite alternate;
+      }
+      .data-packet {
+        stroke-dasharray: 12, 12;
+        animation: flow 20s linear infinite;
+      }
+      .beacon-ring {
+        animation: beacon 3s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        transform-origin: center;
+      }
+      @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.35; }
+        100% { transform: scale(1.08); opacity: 0.65; }
+      }
+      @keyframes float {
+        0% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(-8px) translateX(5px); }
+        100% { transform: translateY(6px) translateX(-5px); }
+      }
+      @keyframes floatRev {
+        0% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(8px) translateX(-6px); }
+        100% { transform: translateY(-5px) translateX(4px); }
+      }
+      @keyframes flow {
+        to { stroke-dashoffset: -400; }
+      }
+      @keyframes beacon {
+        0% { r: 8px; opacity: 1; }
+        100% { r: 24px; opacity: 0; }
+      }
+      .pill-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        fill: #e2e8f0;
+      }
+    </style>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGrad)" stroke="#1e293b" stroke-width="2" />
+
+  <!-- Ambient Dynamic Glowing Blobs in Background (Always Behind Foreground) -->
+  <g opacity="0.4" class="cloud-pulse">
+    <circle cx="200" cy="180" r="140" fill="#0284c7" filter="url(#softGlow)" />
+    <circle cx="1000" cy="170" r="150" fill="#7c3aed" filter="url(#softGlow)" />
+    <circle cx="600" cy="70" r="100" fill="#0d9488" filter="url(#softGlow)" />
+  </g>
+
+  <!-- Subtle Multi-Cloud Network Grid Lines in Background -->
+  <g opacity="0.25">
+    <path d="M 0,90 L 1200,90 M 0,180 L 1200,180 M 0,270 L 1200,270" stroke="#334155" stroke-width="1" stroke-dasharray="6,6" />
+    <path d="M 300,0 L 300,360 M 600,0 L 600,360 M 900,0 L 900,360" stroke="#334155" stroke-width="1" stroke-dasharray="6,6" />
+  </g>
+
+  <!-- Dynamic Orchestration Mesh Flow Lines (Behind text layer) -->
+  <g class="data-packet" fill="none" stroke="url(#lineGrad)" stroke-width="2" opacity="0.7">
+    <path d="M 80,80 C 220,40 380,120 540,80 C 700,40 880,130 1120,70" />
+    <path d="M 80,280 C 260,330 420,240 600,290 C 780,340 960,240 1120,290" />
+    <path d="M 120,180 C 240,230 400,210 600,180 C 800,150 980,210 1080,180" />
+  </g>
+
+  <!-- Animated Cloud Node 1 (AWS / Hybrid Region Left) -->
+  <g class="node-orbit" transform="translate(110, 160)">
+    <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#38bdf8" stroke-width="2" filter="url(#glow)" />
+    <circle cx="0" cy="0" r="10" fill="#38bdf8" />
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#38bdf8" stroke-width="1.5" class="beacon-ring" />
+    <!-- Mini Cloud Icon -->
+    <path d="M -10,2 Q -10,-4 -5,-4 Q -3,-9 4,-8 Q 9,-7 9,-2 Q 13,-2 13,2 Z" fill="#ffffff" opacity="0.9" />
+    <rect x="-35" y="36" width="70" height="22" rx="11" fill="#0f172a" stroke="#38bdf8" stroke-width="1" />
+    <text x="0" y="51" text-anchor="middle" class="pill-text">AWS Fleet</text>
+  </g>
+
+  <!-- Animated Cloud Node 2 (Azure Region Right-Top) -->
+  <g class="node-orbit-rev" transform="translate(1070, 110)">
+    <circle cx="0" cy="0" r="28" fill="#1e293b" stroke="#818cf8" stroke-width="2" filter="url(#glow)" />
+    <circle cx="0" cy="0" r="10" fill="#818cf8" />
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#818cf8" stroke-width="1.5" class="beacon-ring" />
+    <path d="M -10,2 Q -10,-4 -5,-4 Q -3,-9 4,-8 Q 9,-7 9,-2 Q 13,-2 13,2 Z" fill="#ffffff" opacity="0.9" />
+    <rect x="-38" y="36" width="76" height="22" rx="11" fill="#0f172a" stroke="#818cf8" stroke-width="1" />
+    <text x="0" y="51" text-anchor="middle" class="pill-text">Azure Arc</text>
+  </g>
+
+  <!-- Animated Cloud Node 3 (GCP & On-Prem Right-Bottom) -->
+  <g class="node-orbit" transform="translate(1060, 260)">
+    <circle cx="0" cy="0" r="26" fill="#1e293b" stroke="#c084fc" stroke-width="2" filter="url(#glow)" />
+    <circle cx="0" cy="0" r="9" fill="#c084fc" />
+    <circle cx="0" cy="0" r="8" fill="none" stroke="#c084fc" stroke-width="1.5" class="beacon-ring" />
+    <rect x="-42" y="34" width="84" height="22" rx="11" fill="#0f172a" stroke="#c084fc" stroke-width="1" />
+    <text x="0" y="49" text-anchor="middle" class="pill-text">GCP / BareMetal</text>
+  </g>
+
+  <!-- Floating Dynamic Tech Tags (Positioned away from Center Foreground) -->
+  <g class="node-orbit-rev" transform="translate(230, 75)">
+    <rect x="0" y="0" width="105" height="26" rx="13" fill="#1e293b" stroke="#0ea5e9" stroke-width="1.2" opacity="0.9" />
+    <text x="52" y="17" text-anchor="middle" class="pill-text">☸ Kubernetes</text>
+  </g>
+
+  <g class="node-orbit" transform="translate(850, 75)">
+    <rect x="0" y="0" width="95" height="26" rx="13" fill="#1e293b" stroke="#a855f7" stroke-width="1.2" opacity="0.9" />
+    <text x="47" y="17" text-anchor="middle" class="pill-text">⚡ OpenTofu</text>
+  </g>
+
+  <g class="node-orbit-rev" transform="translate(220, 275)">
+    <rect x="0" y="0" width="105" height="26" rx="13" fill="#1e293b" stroke="#10b981" stroke-width="1.2" opacity="0.9" />
+    <text x="52" y="17" text-anchor="middle" class="pill-text">🛡️ FinOps / Cost</text>
+  </g>
+
+  <g class="node-orbit" transform="translate(860, 275)">
+    <rect x="0" y="0" width="115" height="26" rx="13" fill="#1e293b" stroke="#ec4899" stroke-width="1.2" opacity="0.9" />
+    <text x="57" y="17" text-anchor="middle" class="pill-text">🌐 Control Planes</text>
+  </g>
+
+  <!-- ================= FOREGROUND (Crisp & Perfectly Legible) ================= -->
+  <!-- Center Plate for contrast protection -->
+  <rect x="300" y="90" width="600" height="180" rx="18" fill="#090d16" fill-opacity="0.85" stroke="#334155" stroke-width="1.5" filter="url(#softGlow)" />
+
+  <!-- Badge / Pill Above Main Title -->
+  <g transform="translate(480, 110)">
+    <rect x="0" y="0" width="240" height="28" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2" />
+    <text x="120" y="18" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#a5b4fc" letter-spacing="1">
+      ENTERPRISE ARCHITECTURE
+    </text>
+  </g>
+
+  <!-- Main Title -->
+  <text x="600" y="185" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="35" font-weight="800" fill="url(#textGrad)" letter-spacing="-0.5" filter="url(#glow)">
+    Multi-Cloud Infrastructure
+  </text>
+  <text x="600" y="222" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="27" font-weight="700" fill="#f8fafc" letter-spacing="-0.3">
+    Management &amp; Orchestration
+  </text>
+
+  <!-- Subtitle -->
+  <text x="600" y="254" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="500" fill="#94a3b8" letter-spacing="0.2">
+    Curated Control Planes • Hybrid Cloud Fleet Orchestration • FinOps • IaC Tools
+  </text>
+</svg>
