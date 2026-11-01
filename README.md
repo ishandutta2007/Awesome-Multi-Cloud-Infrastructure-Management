@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
   <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
-  <a href="https://github.com/ishandutta2007/Awesome-Multi-Cloud-Infrastructure-Management/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Multi-Cloud-Infrastructure-Management?style=social" alt="GitHub stars" /></a>
+  <a href="https://github.com/ishandutta2007/Awesome-Multi-Cloud-Infrastructure-Management/stargazers"><img src="https://img.shields.io/github/stars/ishandutta2007/Awesome-Multi-Cloud-Infrastructure-Management?style=social" alt="GitHub_Stars" /></a>
   <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT" /></a>
   <a href="https://github.com/ishandutta2007"><img alt="GitHub followers" src="https://img.shields.io/github/followers/ishandutta2007?label=Follow" /></a>
 </p>
@@ -61,9 +61,9 @@ The table below details leading SaaS and managed enterprise platforms for multi-
 
 ## 🔓 Open-Source GitHub Projects
 
-Leading open-source multi-cloud control planes, infrastructure-as-code engines, cluster fleet managers, and FinOps tooling—sorted by **GitHub Star count (descending)**.
+Leading open-source multi-cloud control planes, infrastructure-as-code engines, cluster fleet managers, and FinOps tooling—sorted by **GitHub Stars_Count (descending)**.
 
-| Project | GitHub Stars | License | Primary Focus | Description |
+| Project | GitHub_Stars | License | Primary Focus | Description |
 | :--- | :--- | :--- | :--- | :--- |
 | **[Kubernetes](https://github.com/kubernetes/kubernetes)** | [![Stars](https://img.shields.io/github/stars/kubernetes/kubernetes?style=social&color=white)](https://github.com/kubernetes/kubernetes/stargazers) | Apache-2.0 | 🚢 Container Orchestration | The universal foundation of cloud-native multi-cloud deployments; acts as the standard abstraction layer across all clouds. |
 | **[Terraform](https://github.com/hashicorp/terraform)** | [![Stars](https://img.shields.io/github/stars/hashicorp/terraform?style=social&color=white)](https://github.com/hashicorp/terraform/stargazers) | BUSL-1.1 | 🏗️ Infrastructure-as-Code | Declarative multi-cloud provisioning tool with thousands of ecosystem providers covering AWS, GCP, Azure, and bare metal. |
